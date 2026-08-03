@@ -1,0 +1,11 @@
+[
+  {
+    "id": "fleet-rpa",
+    "title": "차량 운행 데이터 리포트 자동화",
+    "period": "2026.05 ~",
+    "stack": ["UiPath", "Python", "HTML"],
+    "summary": "운행 데이터 집계 후 히트맵 리포트 자동 발송",
+    "thumb": "assets/img/projects/fleet.png",
+    "detail": "pages/project-detail.html?id=fleet-rpa"
+  }
+]
