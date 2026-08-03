@@ -1,0 +1,208 @@
+/* MAQPIE Portfolio - 기본 레이아웃 (뼈대) */
+
+:root {
+    --color-bg: #ffffff;
+    --color-fg: #1a1a1a;
+    --color-muted: #6b7280;
+    --color-line: #e5e7eb;
+    --color-accent: #2563eb;
+
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+
+    --radius: 8px;
+    --max-width: 960px;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.6;
+}
+
+/* ---------- 헤더 ---------- */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-line);
+}
+
+.logo {
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.nav-list {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.nav-list a:hover,
+.contact-list a:hover {
+    color: var(--color-accent);
+}
+
+/* ---------- 섹션 공통 ---------- */
+
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+main > section {
+    padding: var(--space-xl) 0;
+    scroll-margin-top: 5rem; /* sticky 헤더에 제목이 가리지 않도록 */
+}
+
+main > section + section {
+    border-top: 1px solid var(--color-line);
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-lg);
+}
+
+.hero p {
+    color: var(--color-muted);
+    margin-top: var(--space-sm);
+}
+
+/* ---------- 프로젝트 목록 ---------- */
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-lg);
+}
+
+.project-card__link {
+    display: block;
+    height: 100%;
+    padding: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+}
+
+.project-card__link:hover {
+    border-color: var(--color-accent);
+}
+
+.project-card__thumb,
+.detail__thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: var(--space-md);
+}
+
+/* 썸네일 파일이 아직 없을 때의 폴백 */
+.is-placeholder {
+    background: var(--color-line);
+}
+
+.project-card__title {
+    font-size: 1.125rem;
+}
+
+.project-card__period,
+.detail__period {
+    color: var(--color-muted);
+    font-size: 0.875rem;
+}
+
+.project-card__summary,
+.detail__summary {
+    margin-top: var(--space-sm);
+}
+
+/* ---------- 기술 스택 태그 ---------- */
+
+.stack-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+}
+
+.stack-tag {
+    padding: 0.125rem 0.5rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    color: var(--color-muted);
+}
+
+/* ---------- 상세 페이지 ---------- */
+
+.detail__thumb {
+    margin-top: var(--space-md);
+}
+
+.detail__body {
+    margin-top: var(--space-md);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: var(--space-lg);
+    color: var(--color-accent);
+}
+
+/* ---------- 연락처 / 푸터 ---------- */
+
+.contact-list {
+    display: grid;
+    gap: var(--space-sm);
+}
+
+.contact-list a {
+    text-decoration: underline;
+}
+
+.message {
+    color: var(--color-muted);
+}
+
+.site-footer {
+    padding: var(--space-lg);
+    border-top: 1px solid var(--color-line);
+    text-align: center;
+    color: var(--color-muted);
+    font-size: 0.875rem;
+}
+
+/* ---------- 모바일 ---------- */
+
+@media (max-width: 768px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+    }
+
+    main {
+        padding: 0 var(--space-md);
+    }
+
+    main > section {
+        padding: var(--space-lg) 0;
+    }
+}

@@ -6,6 +6,6 @@
     "stack": ["UiPath", "Python", "HTML"],
     "summary": "운행 데이터 집계 후 히트맵 리포트 자동 발송",
     "thumb": "assets/img/projects/fleet.png",
-    "detail": "pages/project-detail.html?id=fleet-rpa"
+    "detail": "운행 기록 원본을 UiPath 로 수집·정제한 뒤 집계 결과를 히트맵 리포트로 만들어 담당자에게 자동 발송합니다. 여기에 상세 설명을 채우세요."
   }
 ]
