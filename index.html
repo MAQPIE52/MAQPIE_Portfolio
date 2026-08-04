@@ -1,16 +1,21 @@
-<html>
+<!DOCTYPE html>
+<html lang="ko">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MAQPIE | Portfolio</title>
-        <meta name="description" content="RPA 개발자">
+        <meta name="description" content="UiPath 기반 RPA 개발자 MAQPIE의 포트폴리오. 반복 업무 자동화 프로젝트를 소개합니다.">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="MAQPIE | Portfolio">
+        <meta property="og:description" content="UiPath 기반 RPA 개발자 MAQPIE의 포트폴리오.">
+        <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
-        <header>
-            <a href="#" class="logo">MAQPIE</a>
+        <header class="site-header">
+            <a href="#hero" class="logo">MAQPIE</a>
             <nav>
-                <ul>
+                <ul class="nav-list">
                     <li><a href="#about">소개</a></li>
                     <li><a href="#projects">프로젝트</a></li>
                     <li><a href="#contact">연락처</a></li>
@@ -19,9 +24,9 @@
         </header>
 
         <main>
-            <section id="RPA">
+            <section id="hero" class="hero">
                 <h1>반복 업무를 자동화합니다</h1>
-                <p>Uipath 기반 RPA 개발.</p>
+                <p>UiPath 기반 RPA 개발.</p>
             </section>
 
             <section id="about">
@@ -31,17 +36,24 @@
 
             <section id="projects">
                 <h2>프로젝트</h2>
-                <ul id="project-list">
-                    <h3>차량 운행 리포트 자동화</h3>
-                    <p>운행 데이터를 집계 후 히트맵 리포트 자동 발송</p>
-                    <ul><li>Uipath</li><li>VB.net</li></ul>
+                <!-- 카드는 assets/js/main.js 가 data/projects.json 을 읽어 렌더링합니다 -->
+                <ul id="project-list" class="project-list"></ul>
+            </section>
+
+            <section id="contact">
+                <h2>연락처</h2>
+                <ul class="contact-list">
+                    <li>Email: <a href="mailto:lsangh52@gmail.com">lsangh52@gmail.com</a></li>
+                    <li>GitHub: <a href="https://github.com/MAQPIE52" target="_blank" rel="noopener">github.com/MAQPIE52</a></li>
+                    <li><a href="assets/files/resume.pdf" download>이력서 다운로드</a></li>
                 </ul>
             </section>
         </main>
 
-        <fotter>
+        <footer class="site-footer">
             <p>© 2026 MAQPIE</p>
-        </fotter>
+        </footer>
 
+        <script src="assets/js/main.js" defer></script>
     </body>
 </html>
