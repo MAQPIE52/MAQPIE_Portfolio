@@ -3,28 +3,34 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark light">
         <title>프로젝트 상세 | MAQPIE</title>
         <meta name="description" content="MAQPIE 포트폴리오 프로젝트 상세.">
         <link rel="stylesheet" href="../assets/css/reset.css">
         <link rel="stylesheet" href="../assets/css/style.css">
     </head>
     <body>
+        <a href="#main" class="skip-link">본문으로 건너뛰기</a>
+
         <header class="site-header">
-            <a href="../index.html" class="logo">MAQPIE</a>
-            <nav>
-                <ul class="nav-list">
-                    <li><a href="../index.html#about">소개</a></li>
-                    <li><a href="../index.html#projects">프로젝트</a></li>
-                    <li><a href="../index.html#contact">연락처</a></li>
-                </ul>
-            </nav>
+            <div class="site-header__inner">
+                <a href="../index.html" class="logo">MAQPIE<span class="logo__dot">.</span></a>
+                <nav aria-label="주요 메뉴">
+                    <ul class="nav-list">
+                        <li><a href="../index.html#about">소개</a></li>
+                        <li><a href="../index.html#skills">기술</a></li>
+                        <li><a href="../index.html#projects">프로젝트</a></li>
+                        <li><a href="../index.html#contact">연락처</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
 
-        <main>
+        <main id="main">
             <!-- 내용은 assets/js/main.js 가 ?id= 값으로 data/projects.json 을 조회해 채웁니다 -->
-            <section id="project-detail">
+            <article id="project-detail" class="detail">
                 <p class="message">불러오는 중…</p>
-            </section>
+            </article>
 
             <a href="../index.html#projects" class="back-link">← 프로젝트 목록으로</a>
         </main>

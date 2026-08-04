@@ -2,18 +2,20 @@
 
 UiPath 기반 RPA 개발자 포트폴리오 사이트. 빌드 도구 없는 정적 사이트(HTML / CSS / Vanilla JS)입니다.
 
+다크 테마가 기본이며, OS 설정이 라이트 테마이면 `prefers-color-scheme` 로 자동 전환됩니다.
+
 ## 폴더 구조
 
 ```
 .
-├── index.html                  메인 페이지 (소개 / 프로젝트 / 연락처)
+├── index.html                  메인 (히어로 / 소개 / 기술 / 프로젝트 / 연락처)
 ├── data/projects.json          프로젝트 데이터 (단일 소스)
 ├── pages/
-│   ├── project-detail.html     프로젝트 상세 (?id= 로 조회)
-│   └── about.html              (미작성)
+│   ├── about.html              소개 상세
+│   └── project-detail.html     프로젝트 상세 (?id= 로 조회)
 └── assets/
     ├── css/reset.css           최소 리셋
-    ├── css/style.css           레이아웃 / 컴포넌트
+    ├── css/style.css           테마 토큰 · 레이아웃 · 컴포넌트
     ├── js/main.js              목록·상세 렌더링
     ├── img/projects/           프로젝트 썸네일
     ├── img/profile/            프로필 이미지
@@ -36,12 +38,29 @@ UiPath 기반 RPA 개발자 포트폴리오 사이트. 빌드 도구 없는 정�
   "id": "고유-식별자",
   "title": "프로젝트 제목",
   "period": "2026.05 ~",
+  "role": "설계 · 개발",
   "stack": ["UiPath", "Python"],
-  "summary": "한 줄 요약",
+  "summary": "목록 카드에 보이는 한 줄 요약",
   "thumb": "assets/img/projects/파일명.png",
-  "detail": "상세 페이지에 표시할 본문"
+  "problem": "어떤 불편이 있었는지",
+  "approach": ["어떻게 접근했는지", "단계별로 한 줄씩"],
+  "result": "무엇이 달라졌는지"
 }
 ```
+
+`problem` / `approach` / `result` / `role` 은 없으면 해당 블록이 그냥 빠집니다.
+
+### 예시 항목 표시
+
+`"example": true` 가 붙은 항목은 카드에 **예시** 배지가 붙습니다.
+실제 프로젝트로 교체할 때 이 필드를 지우면 배지가 사라집니다.
+
+현재 `invoice-rpa`, `portal-crawler` 두 건이 예시로 들어 있습니다.
+
+### 썸네일
+
+`thumb` 파일이 없으면 제목에서 뽑은 이니셜을 얹은 그라데이션 SVG 가 자동으로 그려집니다.
+`assets/img/projects/` 에 실제 이미지를 넣으면 그쪽이 우선합니다. 16:9 비율을 권장합니다.
 
 ## 로컬 실행
 
@@ -59,9 +78,9 @@ VS Code 를 쓴다면 Live Server 확장으로 열어도 됩니다.
 빌드 과정이 없으므로 GitHub Pages 에 그대로 올릴 수 있습니다.
 저장소 **Settings → Pages** 에서 Source 를 `main` 브랜치 `/ (root)` 로 지정하면 됩니다.
 
-## 남은 작업
+## 채워야 할 내용
 
-- `index.html` 의 소개 문구 채우기
-- `assets/img/projects/fleet.png` 썸네일 추가 (없으면 회색 플레이스홀더로 표시됨)
-- `assets/files/resume.pdf` 실제 이력서로 교체
-- `pages/about.html` 작성 여부 결정
+- `pages/about.html` 의 **경력**, **자격 · 교육** 섹션 — 형식만 잡혀 있습니다
+- `index.html` 의 **기술 스택** — 실제 사용 도구에 맞게 조정
+- `data/projects.json` 의 예시 2건 — 실제 프로젝트로 교체
+- `assets/files/resume.pdf` — 현재 빈 파일
