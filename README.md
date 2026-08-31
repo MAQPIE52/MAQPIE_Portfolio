@@ -1,8 +1,36 @@
 # MAQPIE Portfolio
 
-UiPath 기반 RPA 개발자 포트폴리오 사이트. 빌드 도구 없는 정적 사이트(HTML / CSS / Vanilla JS)입니다.
+UiPath RPA 개발자 이상화의 포트폴리오 사이트. 빌드 도구 없는 정적 사이트(HTML / CSS / Vanilla JS)입니다.
 
 다크 테마가 기본이며, OS 설정이 라이트 테마이면 `prefers-color-scheme` 로 자동 전환됩니다.
+
+## 콘텐츠 원본은 Notion
+
+프로젝트 내용의 **원본은 Notion `Portfolio` 페이지의 `프로젝트` 데이터베이스**입니다.
+이 저장소는 그중 공개할 것만 골라 보여주는 창구입니다.
+
+```
+Notion 프로젝트 DB  ──(사이트 공개 ✓ 인 항목만)──▶  data/projects.json  ──▶  사이트
+```
+
+Notion DB 속성과 `projects.json` 필드는 다음과 같이 대응합니다.
+
+| Notion 속성 | projects.json |
+| --- | --- |
+| 제목 | `title` |
+| 사이트 ID | `id` |
+| 기간 | `period` |
+| 역할 | `role` |
+| 기술 스택 | `stack` (배열) |
+| 한 줄 요약 | `summary` |
+| 문제 | `problem` |
+| 접근 | `approach` (줄바꿈 → 배열) |
+| 결과 | `result` |
+| 사이트 공개 | 체크된 항목만 JSON 에 포함 |
+
+`thumb` 은 Notion 에 없습니다. 이미지를 `assets/img/projects/` 에 넣고 경로를 직접 적으면 됩니다.
+
+새 프로젝트를 사이트에 올리는 순서: **Notion 에서 내용을 채우고 → `사이트 공개` 체크 → `projects.json` 에 항목 추가.**
 
 ## 폴더 구조
 
@@ -52,10 +80,8 @@ UiPath 기반 RPA 개발자 포트폴리오 사이트. 빌드 도구 없는 정�
 
 ### 예시 항목 표시
 
-`"example": true` 가 붙은 항목은 카드에 **예시** 배지가 붙습니다.
-실제 프로젝트로 교체할 때 이 필드를 지우면 배지가 사라집니다.
-
-현재 `invoice-rpa`, `portal-crawler` 두 건이 예시로 들어 있습니다.
+`"example": true` 를 붙이면 카드에 **예시** 배지가 붙습니다.
+아직 확정되지 않은 항목을 임시로 올려둘 때 쓰세요. 현재 사용 중인 항목은 없습니다.
 
 ### 썸네일
 
@@ -80,7 +106,10 @@ VS Code 를 쓴다면 Live Server 확장으로 열어도 됩니다.
 
 ## 채워야 할 내용
 
-- `pages/about.html` 의 **경력**, **자격 · 교육** 섹션 — 형식만 잡혀 있습니다
+- **Notion 프로젝트 DB** — SK텔레콤 담당 9건이 제목만 들어가 있습니다.
+  내용을 채우고 `사이트 공개` 를 켠 뒤 `projects.json` 으로 옮기세요.
+  사내 시스템 이름을 공개 사이트에 올려도 되는지는 먼저 확인이 필요합니다.
+- `pages/about.html` 의 **자격 · 교육** 섹션 — 해당 없으면 섹션째 삭제
 - `index.html` 의 **기술 스택** — 실제 사용 도구에 맞게 조정
-- `data/projects.json` 의 예시 2건 — 실제 프로젝트로 교체
+- `assets/img/projects/fleet.png` — 없으면 자동 생성 SVG 로 대체됩니다
 - `assets/files/resume.pdf` — 현재 빈 파일

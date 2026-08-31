@@ -290,6 +290,54 @@ main {
 }
 
 /* ------------------------------------------------------------------
+   경력
+   ------------------------------------------------------------------ */
+
+.career {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.career__item {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    gap: var(--space-md);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--border);
+}
+
+.career__item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.career__period {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--fg-faint);
+    padding-top: 0.25rem;
+}
+
+.career__company {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.career__role {
+    margin-top: var(--space-2xs);
+    color: var(--accent);
+    font-size: 0.9375rem;
+}
+
+.career__desc {
+    margin-top: var(--space-sm);
+    color: var(--fg-muted);
+    font-size: 0.9375rem;
+    max-width: 60ch;
+}
+
+/* ------------------------------------------------------------------
    기술 스택
    ------------------------------------------------------------------ */
 
@@ -618,9 +666,14 @@ main {
         font-size: 0.875rem;
     }
 
-    .skills__group {
+    .skills__group,
+    .career__item {
         grid-template-columns: 1fr;
         gap: var(--space-xs);
+    }
+
+    .career__period {
+        padding-top: 0;
     }
 
     .contact-list li {
