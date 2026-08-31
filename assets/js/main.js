@@ -152,11 +152,7 @@ function buildProjectCard(project) {
     title.className = "project-card__title";
     title.textContent = project.title;
 
-    const summary = document.createElement("p");
-    summary.className = "project-card__summary";
-    summary.textContent = project.summary;
-
-    // 기간을 아직 정리하지 않은 항목은 줄 자체를 넣지 않습니다.
+    // 아직 정리하지 않은 항목은 해당 줄 자체를 넣지 않습니다.
     if (project.period) {
         const period = document.createElement("p");
         period.className = "project-card__period";
@@ -164,7 +160,16 @@ function buildProjectCard(project) {
         body.append(period);
     }
 
-    body.append(title, summary, buildTagList(project.stack));
+    body.append(title);
+
+    if (project.summary) {
+        const summary = document.createElement("p");
+        summary.className = "project-card__summary";
+        summary.textContent = project.summary;
+        body.append(summary);
+    }
+
+    body.append(buildTagList(project.stack));
     link.append(figure, body);
     li.append(link);
     return li;
@@ -275,11 +280,16 @@ async function renderProjectDetail(rootEl) {
         title.className = "detail__title";
         title.textContent = project.title;
 
-        const summary = document.createElement("p");
-        summary.className = "detail__summary";
-        summary.textContent = project.summary;
+        header.append(eyebrow, title);
 
-        header.append(eyebrow, title, summary, buildMetaList(project));
+        if (project.summary) {
+            const summary = document.createElement("p");
+            summary.className = "detail__summary";
+            summary.textContent = project.summary;
+            header.append(summary);
+        }
+
+        header.append(buildMetaList(project));
 
         const img = document.createElement("img");
         img.className = "detail__thumb";
@@ -300,6 +310,11 @@ async function renderProjectDetail(rootEl) {
         stackTitle.className = "detail__block-title";
         stackTitle.textContent = "사용 기술";
         stackBlock.append(stackTitle, buildTagList(project.stack));
+
+        // 문제·접근·결과가 아직 하나도 없으면 빈 페이지처럼 보이지 않게 안내를 둡니다.
+        if (!blocks.length) {
+            blocks.push(buildMessage("상세 내용은 정리 중입니다.", "p"));
+        }
 
         rootEl.replaceChildren(header, img, stackBlock, ...blocks);
     } catch (err) {
