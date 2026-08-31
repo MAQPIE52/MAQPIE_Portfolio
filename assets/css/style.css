@@ -347,20 +347,6 @@ main {
     max-width: 60ch;
 }
 
-.career__works-label {
-    margin-top: var(--space-md);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--fg-faint);
-}
-
-.career__works-label + .tag-list {
-    margin-top: var(--space-xs);
-    max-width: 60ch;
-}
-
 /* ------------------------------------------------------------------
    기술 스택
    ------------------------------------------------------------------ */
