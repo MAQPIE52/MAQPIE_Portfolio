@@ -330,6 +330,16 @@ main {
     font-size: 0.9375rem;
 }
 
+.career__note {
+    margin-left: var(--space-xs);
+    padding: 0.0625rem 0.5rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    color: var(--fg-faint);
+    font-size: 0.6875rem;
+    vertical-align: 0.1em;
+}
+
 .career__desc {
     margin-top: var(--space-sm);
     color: var(--fg-muted);
