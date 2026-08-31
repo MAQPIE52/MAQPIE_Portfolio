@@ -148,10 +148,6 @@ function buildProjectCard(project) {
     const body = document.createElement("div");
     body.className = "project-card__body";
 
-    const period = document.createElement("p");
-    period.className = "project-card__period";
-    period.textContent = project.period;
-
     const title = document.createElement("h3");
     title.className = "project-card__title";
     title.textContent = project.title;
@@ -160,7 +156,15 @@ function buildProjectCard(project) {
     summary.className = "project-card__summary";
     summary.textContent = project.summary;
 
-    body.append(period, title, summary, buildTagList(project.stack));
+    // 기간을 아직 정리하지 않은 항목은 줄 자체를 넣지 않습니다.
+    if (project.period) {
+        const period = document.createElement("p");
+        period.className = "project-card__period";
+        period.textContent = project.period;
+        body.append(period);
+    }
+
+    body.append(title, summary, buildTagList(project.stack));
     link.append(figure, body);
     li.append(link);
     return li;
